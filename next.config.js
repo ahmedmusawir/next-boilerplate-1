@@ -4,6 +4,7 @@ const withSourceMaps = require("@zeit/next-source-maps");
 const withImages = require("next-images");
 const withPlugins = require("next-compose-plugins");
 const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
+// const withSass = require('@zeit/next-sass');
 
 const plugins = [
   withSourceMaps,

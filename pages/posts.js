@@ -9,7 +9,6 @@ import Store from "store";
 import { fetchPosts } from "store/posts/actions";
 import { Link } from "routes";
 import NProgress from "components/NProgress";
-import { Button } from "reactstrap";
 
 const H1 = styled.h1`
   color: #458542;
@@ -28,27 +27,27 @@ class PostsIndex extends Component {
           <title>Posts Index</title>
         </Head>
         <NProgress />
-        <Button
-          color="success"
+        <button
           onClick={() => {
             fetchPostsAction();
           }}
         >
           Click Me
-        </Button>
-        <Button color="danger">Danger!</Button>
-        <H1>Posts</H1>
-        {posts.length > 0 &&
-          posts.map(post => (
-            <div key={post.id}>
-              <h2>
-                <Link prefetch route="post" params={{ id: post.id }}>
-                  <a>{post.title}</a>
-                </Link>
-              </h2>
-              <p>{post.body}</p>
-            </div>
-          ))}
+        </button>
+        <div>
+          <H1>Posts</H1>
+          {posts.length > 0 &&
+            posts.map(post => (
+              <div key={post.id}>
+                <h2>
+                  <Link prefetch route="post" params={{ id: post.id }}>
+                    <a>{post.title}</a>
+                  </Link>
+                </h2>
+                <p>{post.body}</p>
+              </div>
+            ))}
+        </div>
       </div>
     );
   }

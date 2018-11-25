@@ -1,5 +1,6 @@
 import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
+import { MainNav } from "components/navigation/MainNav";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -16,14 +17,14 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>My page</title>
+          <title>Home Page</title>
           <link
             rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            href="/static/scss/custom-bootstrap-4.1.3.css"
           />
-          <link rel="stylesheet" href="/_next/static/style.css" />
           {this.props.styleTags}
         </Head>
+        <MainNav />
         <body>
           <Main />
           <NextScript />
