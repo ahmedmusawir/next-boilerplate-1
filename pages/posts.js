@@ -13,7 +13,7 @@ import {
   ListGroup,
   ListGroupItem
 } from 'reactstrap';
-import { H1, H2, H3, H4, H5, H6, P, A, Img } from 'components/general';
+import { H1, H2 } from 'components/general';
 
 import Store from 'store';
 import { fetchPosts } from 'store/posts/actions';

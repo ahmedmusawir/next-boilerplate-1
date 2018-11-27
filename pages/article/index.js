@@ -13,7 +13,6 @@ import {
   CardBody,
   Button
 } from 'reactstrap';
-import { H1, H2, H3, H4, H5, H6, P, A, Img } from 'components/general';
 
 const Article = props => (
   <Layout>
