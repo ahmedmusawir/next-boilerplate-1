@@ -30,20 +30,31 @@ export class MainNav extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md" className="fixed-top">
-          <NavbarBrand tag={Link} to="/">
-            DeepCast.ai
-          </NavbarBrand>
+          <Link prefetch href="/" passHref>
+            <NavbarBrand>DeepCast.ai</NavbarBrand>
+          </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <Link prefetch href="/" passHref>
+                  <NavLink>Home</NavLink>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/about">About Styles</NavLink>
+                <Link prefetch href="/about" passHref>
+                  <NavLink>About Styles</NavLink>
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/posts">Posts</NavLink>
+                <Link prefetch href="/about/sub-page" passHref>
+                  <NavLink>SubPage of About</NavLink>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link prefetch href="/posts" passHref>
+                  <NavLink>Posts</NavLink>
+                </Link>
               </NavItem>
             </Nav>
           </Collapse>

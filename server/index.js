@@ -5,6 +5,7 @@ const compression = require("compression");
 
 const routes = require("../routes");
 
+const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handler = routes.getRequestHandler(app);
 
@@ -16,5 +17,7 @@ app.prepare().then(() => {
     .use(cookiesMiddleware())
     .use(compression())
     .use(handler)
-    .listen(3000);
+    .listen(port, () => {
+      console.log(`Listening on PORT ${port}`);
+    });
 });

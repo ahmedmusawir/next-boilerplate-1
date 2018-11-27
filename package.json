@@ -6,6 +6,7 @@
     "dev": "node server",
     "build": "next build",
     "start": "NODE_ENV=production node server",
+    "deploy": "now --public",
     "precommit": "lint-staged"
   },
   "lint-staged": {

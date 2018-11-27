@@ -17,7 +17,6 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>Home Page</title>
           <link
             rel="stylesheet"
             href="/static/scss/custom-bootstrap-4.1.3.css"
