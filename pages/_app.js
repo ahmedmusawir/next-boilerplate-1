@@ -1,6 +1,8 @@
-import React from "react";
-import App, { Container } from "next/app";
-import GlobalStyle from "static/global-styles";
+import React from 'react';
+import App, { Container } from 'next/app';
+import GlobalStyle from 'static/global-styles';
+import { ThemeProvider } from 'styled-components';
+import DeepCastTheme from 'components/theme/DeepCast';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -51,7 +53,10 @@ export default class MyApp extends App {
     const url = this.createUrl(router);
     return (
       <Container>
-        <Component {...pageProps} url={url} />
+        <ThemeProvider theme={DeepCastTheme}>
+          <Component {...pageProps} url={url} />
+        </ThemeProvider>
+
         <GlobalStyle />
       </Container>
     );

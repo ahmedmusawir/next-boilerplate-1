@@ -1,54 +1,62 @@
-import React, { Component } from "react";
-import { bindActionCreators } from "redux";
-import withRedux from "next-redux-wrapper";
-import withReduxSaga from "next-redux-saga";
-import Head from "next/head";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import Store from "store";
-import { fetchPosts } from "store/posts/actions";
-import { Link } from "routes";
-import NProgress from "components/NProgress";
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import withRedux from 'next-redux-wrapper';
+import withReduxSaga from 'next-redux-saga';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import Layout from 'components/layout/Layout';
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  ListGroup,
+  ListGroupItem
+} from 'reactstrap';
+import { H1, H2, H3, H4, H5, H6, P, A, Img } from 'components/general';
 
-const H1 = styled.h1`
-  color: #458542;
-`;
+import Store from 'store';
+import { fetchPosts } from 'store/posts/actions';
+import { Link } from 'routes';
+import NProgress from 'components/NProgress';
 
 class PostsIndex extends Component {
   static getInitialProps({ store }) {
     store.dispatch(fetchPosts());
   }
-
+  HandleClick = e => {
+    this.props.fetchPostsAction();
+  };
   render() {
-    const { posts, fetchPostsAction } = this.props;
+    const { posts } = this.props;
     return (
-      <div>
+      <Layout>
         <Head>
           <title>Posts Index</title>
         </Head>
         <NProgress />
-        <button
-          onClick={() => {
-            fetchPostsAction();
-          }}
-        >
-          Click Me
-        </button>
-        <div>
-          <H1>Posts</H1>
-          {posts.length > 0 &&
-            posts.map(post => (
-              <div key={post.id}>
-                <h2>
-                  <Link prefetch route="post" params={{ id: post.id }}>
-                    <a>{post.title}</a>
-                  </Link>
-                </h2>
-                <p>{post.body}</p>
-              </div>
-            ))}
-        </div>
-      </div>
+
+        <Container>
+          <H1>Posts with Redux and Saga</H1>
+          <hr />
+          <Button color="success" onClick={this.HandleClick}>
+            Refresh
+          </Button>
+          <ListGroup>
+            {posts.length > 0 &&
+              posts.map(post => (
+                <ListGroupItem key={post.id}>
+                  <H2>
+                    <Link prefetch route="post" params={{ id: post.id }}>
+                      <a>{post.title}</a>
+                    </Link>
+                  </H2>
+                  <p>{post.body}</p>
+                </ListGroupItem>
+              ))}
+          </ListGroup>
+        </Container>
+      </Layout>
     );
   }
 }

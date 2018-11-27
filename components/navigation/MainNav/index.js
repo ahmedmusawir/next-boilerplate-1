@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 import {
   Collapse,
   Navbar,
@@ -8,7 +8,7 @@ import {
   Nav,
   NavItem,
   NavLink
-} from "reactstrap";
+} from 'reactstrap';
 
 export class MainNav extends React.Component {
   constructor(props) {
@@ -43,12 +43,19 @@ export class MainNav extends React.Component {
               </NavItem>
               <NavItem>
                 <Link prefetch href="/about" passHref>
-                  <NavLink>About Styles</NavLink>
+                  <NavLink>About</NavLink>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link prefetch href="/articles" passHref>
+                  <NavLink>Articles</NavLink>
                 </Link>
               </NavItem>
               <NavItem>
                 <Link prefetch href="/about/sub-page" passHref>
-                  <NavLink>SubPage of About</NavLink>
+                  <NavLink>
+                    SubPage <small>of About</small>
+                  </NavLink>
                 </Link>
               </NavItem>
               <NavItem>
